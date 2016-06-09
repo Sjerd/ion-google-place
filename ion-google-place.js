@@ -23,7 +23,7 @@ angular.module('ion-google-place', [])
 
                     scope.locations = [];
                     var geocoder = new google.maps.Geocoder();
-                    var searchEventTimeout = undefined;
+                    var searchEventTimeout;
 
                     scope.displayCurrentLocation = false;
                     scope.currentLocation = scope.currentLocation === "true"? true:false;
@@ -172,7 +172,7 @@ angular.module('ion-google-place', [])
                                 unbindBackButtonAction();
                                 unbindBackButtonAction = null;
                             }
-                        }
+                        };
 
                         element.bind('click', onClick);
                         element.bind('touchend', onClick);
@@ -231,7 +231,7 @@ angular.module('ion-google-place', [])
                                     if (results[1]) {
                                         resolve(results[1]);
                                     } else {
-                                        resolve(results[0])
+                                        resolve(results[0]);
                                     }
                                 } else {
                                     var error = {
@@ -240,7 +240,7 @@ angular.module('ion-google-place', [])
                                     };
                                     reject(error);
                                 }
-                            })
+                            });
                         });
                     }
                 }
